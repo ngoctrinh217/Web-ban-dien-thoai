@@ -1,0 +1,776 @@
+body {
+    background: rgb(230, 230, 230);
+}
+
+a {
+    text-decoration: none !important;
+}
+
+li {
+    list-style: none;
+}
+
+/* sidebar */
+#sidebar {
+    position: fixed;
+    width: 260px;
+    background: white;
+    top: 0;
+    left: 0;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+#sidebar ::-webkit-scrollbar {
+    display: none;
+}
+
+#sidebar .brand {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 64px;
+    font-weight: 700;
+    color: blue;
+}
+
+#sidebar .icon {
+    min-width: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sidebar .icon-right {
+    margin-left: auto;
+    transition: all .3s ease;
+}
+
+#sidebar .side-menu {
+    margin: 36px 0;
+    padding: 0 20px;
+}
+
+#sidebar .side-menu a {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: black;
+    padding: 12px 16px 12px 0;
+    transition: all .3s ease;
+    border-radius: 10px;
+    margin: 4px 0;
+
+
+}
+
+#sidebar .sidemenu>li>a:hover {
+    background: rgb(230, 230, 230);
+}
+
+#sidebar .side-menu>li>a.active .icon-right {
+    transform: rotate(90deg);
+}
+
+#sidebar .side-menu>li>a.active,
+#sidebar .side-menu>li>a.active:hover {
+    background: blue;
+    color: white;
+}
+
+#sidebar .divider {
+    margin-top: 24px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgb(66, 66, 66);
+}
+
+#sidebar .side-dropdown {
+    padding-left: 48px;
+    line-height: 1px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all.15s ease;
+}
+
+#sidebar .side-dropdown.show {
+    max-height: 1000px;
+}
+
+#sidebar .side-dropdown a:hover {
+    color: blue;
+}
+
+/* sidebar */
+/* Content*/
+#content {
+    position: relative;
+    width: calc(100% - 260px);
+    left: 260px;
+}
+
+nav {
+    background: white;
+    height: 64px;
+    padding: 0 0 0 20px;
+    display: flex;
+    align-items: center;
+}
+
+#nav .toggle-sidebar {
+    font-size: 18px;
+    cursor: pointer;
+}
+
+nav form {
+    max-width: 400px;
+    width: 100%;
+    margin-right: auto;
+}
+
+
+.input-search {
+    width: 27%;
+    height: 40px;
+    border: 3px solid #0000ff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.input-search input {
+    border: none;
+    outline: none;
+    height: 100%;
+    font-size: 1.5rem;
+    padding: 10px;
+    flex: 1;
+}
+
+.input-search i {
+    font-size: 2rem;
+    margin-right: 8px;
+}
+
+
+
+
+nav .divider {
+    width: 1px;
+    background: rgb(230, 230, 230);
+    height: 12px;
+    display: block;
+}
+
+nav .profile {
+    position: relative;
+    display: flex;
+}
+
+nav .profile img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+nav .profile span {
+    margin: 10px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+nav .profile .profile-link {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    background: white;
+    padding: 10px 0;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, 1);
+    border-radius: 10px;
+    width: 160px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .3s ease;
+    z-index: 10;
+}
+
+nav .profile .profile-link .icon {
+    padding-right: 10px;
+}
+
+nav .profile .profile-link.show {
+    opacity: 1;
+    pointer-events: visible;
+    top: 100%;
+}
+
+nav .profile .profile-link a {
+    padding: 10px 16px;
+    display: flex;
+    font-size: 14px;
+    color: black;
+    align-items: center;
+    transform: all .3s ease;
+}
+
+nav .profile .profile-link a:hover {
+    background: rgb(230, 230, 230);
+}
+
+/* Main */
+main {
+    width: 100%;
+    padding: 24px 0px 20px 5px;
+}
+
+main .title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+main .breadcrumbs {
+    display: flex;
+    padding-left: 5px;
+}
+
+main .breadcrumbs li,
+main .breadcrumbs li a {
+    font-size: 14px;
+}
+
+main .breadcrumbs li a {
+    color: blue;
+}
+
+main .breadcrumbs li a.active,
+main .breadcrumbs li.divider {
+    color: darkgrey;
+    pointer-events: none;
+}
+
+main .info-data {
+    margin-top: 36px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-gap: 20px;
+}
+
+main .info-data .card {
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 4px 4px 16px rgba(0, 0, 0, .05);
+}
+
+main .card .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+main .card .head h2 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+main .card .head p {
+    font-size: 14px;
+}
+
+main .card .head .icon {
+    font-size: 20px;
+}
+
+main .card .progress {
+    display: block;
+    margin-top: 24px;
+    height: 10px;
+    width: 100%;
+    border-radius: 10px;
+    background: grey;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 4px;
+}
+
+main .card .progress::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: blue;
+    width: var(--value);
+}
+
+main .card .label {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* Main */
+/* Content*/
+
+
+/* Table San Pham */
+.product-admin table td,
+.product-admin table th {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.product-admin thead th {
+    color: #fff;
+}
+
+.product-admin .card {
+    border-radius: .5rem;
+}
+
+.product-admin .table-scroll {
+    border-radius: .5rem;
+}
+
+.product-admin .table-scroll table thead th {
+    font-size: 1.25rem;
+}
+
+.product-admin thead {
+    top: 0;
+    position: sticky;
+}
+
+.product-admin .img-product {
+    height: 80px;
+    width: 80px;
+}
+
+.product-admin .img-product img {
+    max-width: 100%;
+    max-height: 100%;
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+}
+
+/* Button product dashboard */
+.blob-btn {
+    z-index: 1;
+    position: relative;
+    padding: 20px 46px;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #0505A9;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    transition: color 0.5s;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.blob-btn:before {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #0505A9;
+    border-radius: 30px;
+}
+
+.blob-btn:after {
+    content: "";
+    z-index: -2;
+    position: absolute;
+    left: calc(2px * 1.5);
+    top: calc(2px * 1.5);
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s 0.2s;
+    border-radius: 30px;
+}
+
+.blob-btn:hover {
+    color: #FFFFFF;
+    border-radius: 30px;
+}
+
+.blob-btn:hover:after {
+    transition: all 0.3s;
+    left: 0;
+    top: 0;
+    border-radius: 30px;
+}
+
+.blob-btn__inner {
+    z-index: -1;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    background: #ffffff;
+}
+
+.blob-btn__blobs {
+    position: relative;
+    display: block;
+    height: 100%;
+    filter: url('#goo');
+}
+
+.blob-btn__blob {
+    position: absolute;
+    top: 2px;
+    width: calc(100% / 4);
+    height: 100%;
+    background: #0505A9;
+    border-radius: 100%;
+    transform: translate3d(0, 150%, 0) scale(1.7);
+    transition: transform 0.45s;
+}
+
+.blob-btn__blob:nth-child(1) {
+    left: calc((1 - 1) * (120% / 4));
+    transition-delay: calc((1 - 1) * 0.08s);
+}
+
+.blob-btn__blob:nth-child(2) {
+    left: calc((2 - 1) * (120% / 4));
+    transition-delay: calc((2 - 1) * 0.08s);
+}
+
+.blob-btn__blob:nth-child(3) {
+    left: calc((3 - 1) * (120% / 4));
+    transition-delay: calc((3 - 1) * 0.08s);
+}
+
+.blob-btn__blob:nth-child(4) {
+    left: calc((4 - 1) * (120% / 4));
+    transition-delay: calc((4 - 1) * 0.08s);
+}
+
+.blob-btn:hover .blob-btn__blob {
+    transform: translateZ(0) scale(1.7);
+}
+
+@supports(filter: url('#goo')) {
+    .blob-btn:hover .blob-btn__blob {
+        transform: translateZ(0) scale(1.4);
+    }
+}
+
+
+
+/* Control wrap */
+.control-wrap i {
+    cursor: pointer;
+}
+
+
+/* Product add form */
+.modal-content {
+    width: 50%;
+}
+
+.product-add-form .modal-dialog,
+.product-edit-form .modal-dialog {
+    max-width: 100%;
+    width: 50vw;
+    height: 50vh;
+}
+
+.product-order-form .modal-dialog {
+    max-width: 100%;
+    width: 70vw;
+    height: 60vh;
+}
+
+/* form-input-product */
+.form-input-product {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.form-input-product h6 {
+    margin-left: 10px;
+}
+
+.form-input-product input {
+    background: transparent;
+    outline: none;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 1rem;
+    border: 1px solid #0000ff;
+}
+
+/* image-wrap */
+
+.image-wrap {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+#image-preview {
+    width: 100px;
+    height: 100px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+
+/* Hover delete btn */
+.control-wrap .delete {
+    color: red;
+}
+
+.control-wrap .delete:hover {
+    color: black;
+}
+
+
+/* Date */
+.date-order.container {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.date-order .date-order input {
+    padding: 22px 15px !important;
+    border: 1px solid #CFD8DC !important;
+    border-radius: 4px !important;
+    box-sizing: border-box;
+    background-color: #fff !important;
+    color: #000 !important;
+    font-size: 16px !important;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+.date-order input:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border: 1px solid #1976D2 !important;
+    outline-width: 0;
+}
+
+.date-order .fa-calendar {
+    position: absolute;
+    top: 13px;
+    font-size: 20px;
+    color: #1976D2;
+    z-index: 1000;
+}
+
+.date-order #fa-1 {
+    left: calc(50% - 40px);
+}
+
+.date-order #fa-2 {
+    left: calc(100% - 40px);
+}
+
+.date-order .form-control-placeholder {
+    position: absolute;
+    top: -10px !important;
+    padding: 12px 2px 0 2px;
+    opacity: 0.5;
+}
+
+.date-order #end-p {
+    left: calc(50% + 4px);
+}
+
+.date-order .form-control:focus+.form-control-placeholder,
+.date-order .form-control:valid+.form-control-placeholder {
+    font-size: 95%;
+    top: 10px;
+    transform: translate3d(0, -100%, 0);
+    opacity: 1;
+}
+
+.date-order ::placeholder {
+    color: #BDBDBD;
+    opacity: 1;
+}
+
+.date-order :-ms-input-placeholder {
+    color: #BDBDBD;
+}
+
+.date-order ::-ms-input-placeholder {
+    color: #BDBDBD;
+}
+
+.date-order button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0;
+}
+
+.date-order .datepicker {
+    background-color: #fff;
+    border-radius: 0 !important;
+    align-content: center !important;
+    padding: 0 !important;
+}
+
+.date-order .datepicker-dropdown {
+    top: 180px !important;
+    left: calc(50% - 173.5px) !important;
+    border-right: #1976D2;
+    border-left: #1976D2;
+}
+
+.date-order .datepicker-dropdown.datepicker-orient-left:before {
+    left: calc(50% - 6px) !important;
+}
+
+.date-order .datepicker-dropdown.datepicker-orient-left:after {
+    left: calc(50% - 5px) !important;
+    border-bottom-color: #1976D2;
+}
+
+.date-order .datepicker-dropdown.datepicker-orient-right:after {
+    border-bottom-color: #1976D2;
+}
+
+.date-order .datepicker table tr td.today,
+.date-order span.focused {
+    border-radius: 50% !important;
+    background-image: linear-gradient(#FFF3E0, #FFE0B2);
+}
+
+.date-order thead tr:nth-child(2) {
+    background-color: #1976D2 !important;
+}
+
+/*Weekday title*/
+.date-order thead tr:nth-child(3) th {
+    font-weight: bold !important;
+    padding: 20px 10px !important;
+    color: #BDBDBD !important;
+}
+
+.date-order tbody tr td {
+    padding: 10px !important;
+}
+
+.date-order tfoot tr:nth-child(2) th {
+    padding: 10px !important;
+    border-top: 1px solid #CFD8DC !important;
+}
+
+.date-order .cw {
+    font-size: 14px !important;
+    background-color: #E8EAF6 !important;
+    border-radius: 0px !important;
+    padding: 0px 20px !important;
+    margin-right: 10px solid #fff !important;
+}
+
+.date-order .old,
+.date-order .day,
+.date-order .new {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 0px !important;
+}
+
+.date-order .day.old,
+.date-order .day.new {
+    color: #E0E0E0 !important;
+}
+
+.date-order .day.old:hover,
+.date-order .day.new:hover {
+    border-radius: 50% !important;
+}
+
+.date-order .old-day:hover,
+.date-order .day:hover,
+.date-order .new-day:hover,
+.date-order .month:hover,
+.date-order .year:hover,
+.date-order .decade:hover,
+.date-order .century:hover {
+    border-radius: 50% !important;
+    background-color: #eee;
+}
+
+.date-order .active {
+    border-radius: 50% !important;
+    background-image: linear-gradient(#1976D2, #1976D2) !important;
+    color: #fff !important;
+}
+
+.date-order .range-start,
+.date-order .range-end {
+    border-radius: 50% !important;
+    background-image: linear-gradient(#1976D2, #1976D2) !important;
+}
+
+.date-order .range {
+    background-color: #E3F2FD !important;
+}
+
+.date-order .prev,
+.date-order .next,
+.date-order .datepicker-switch {
+    border-radius: 0 !important;
+    padding: 10px 10px 10px 10px !important;
+    font-size: 18px;
+    opacity: 0.7;
+    color: #fff;
+}
+
+.date-order .date-order .prev:hover,
+.date-order .next:hover,
+.date-order .datepicker-switch:hover {
+    background-color: inherit !important;
+    opacity: 1;
+}
+
+@media screen and (max-width: 726px) {
+    .date-order .datepicker-dropdown.datepicker-orient-right:before {
+        right: calc(50% - 6px);
+    }
+
+    .date-order .datepicker-dropdown.datepicker-orient-right:after {
+        right: calc(50% - 5px);
+    }
+}
+
+/* alert product */
+.alert-product {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Phân quyền */
+
+
+/* dropdown list */

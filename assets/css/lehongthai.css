@@ -1,0 +1,29 @@
+.pagination_link.active{
+    background-color: burlywood;
+}
+
+.form-input-account input,.form-input-baohanh input,.form-input-KhuyenMai input  {
+    background: transparent;
+    outline: none;
+    padding: 8px 50px;
+    border-radius: 20px;
+    font-size: 1rem;
+    border: 1px solid #0000ff;
+    width: 90%;
+}
+
+select#gioitinh,select#loaitk,select#quyentk,#gioitinhKH {
+    background: transparent;
+    outline: none;
+    padding: 8px 50px;
+    font-size: 1rem;
+    border: 1px solid #0000ff;
+    width: 300px;
+}
+
+td {
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 1.5rem;
+}

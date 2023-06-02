@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="assets/css/Donhang.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <h1 class="title">Đơn hàng</h1>
+        <br>
+        <button class="Dh btn add-new" type="button" data-toggle="tooltip" data-placement="top" title="Thêm đơn hàng">
+            <i class="bx bx-user-plus icon"></i>
+        </button>
+        <button class="Dh btn filter" type="button" onclick="sortTable()" data-toggle="tooltip" data-placement="top"
+            title="Lọc dữ liệu">
+            <i class="bx bx-filter icon"></i>
+        </button>
+        <div class="table-title">
+
+        </div>
+        <table class="table table-bordered" id="myTable">
+            <thead>
+                <tr class="ex">
+                    <th width="auto">ID Đơn hàng</th>
+                    <th>ID Nhân Viên</th>
+                    <th>ID Khách hàng</th>
+                    <th>Ngày đặt hàng</th>
+                    <th>Số lượng</th>
+                    <th>Tổng tiền</th>
+                    <th>Địa chỉ giao hàng</th>
+                    <th>Trạng thái</th>
+                    <th width="8px; !important">Tính năng</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>123</td>
+                    <td>456</td>
+                    <td>789</td>
+                    <td>12/12/2022</td>
+                    <td>100</td>
+                    <td>1000000</td>
+                    <td>6 Nguyễn Trãi Q5</td>
+                    <td>Đang giao</td>
+                    <td>
+                        <a class="add" title="Lưu Lại" data-toggle="tooltip"><i class="bx bx-floppy-o"
+                                aria-hidden="true"></i></a>
+                        <a class="edit" title="Sửa" data-toggle="tooltip"><i class="bx bx-pencil"
+                                aria-hidden="true"></i></a>
+                        <a class="delete" title="Xóa" data-toggle="tooltip"><i class="bx bx-trash"
+                                aria-hidden="true"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    <div class='dropdown'>
+        <a class='btn btn-secondary dropdown-toggle' href='#' role='button' id='dropdownMenuLink'
+            data-bs-toggle='dropdown' aria-expanded='false'>
+            Dropdown link
+        </a>
+
+        <ul class='dropdown-menu' aria-labelledby='dropdownMenuLink'>
+            <li><a class='dropdown-item' href='#'>Action</a></li>
+            <li><a class='dropdown-item' href='#'>Another action</a></li>
+            <li><a class='dropdown-item' href='#'>Something else here</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
